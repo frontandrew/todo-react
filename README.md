@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TODO (react)
+## v0.0.1
+---
+  
+### About:
 
-## Available Scripts
+Hi! And wellcome. 
 
-In the project directory, you can run:
+[![todo-react screenshot](https://screen.png "github.io/todo-react")](https://frontandrew.github.io/todo-react/)
 
-### `npm start`
+'TODO' is a my _study React project_. Its web application to make to-do list. Please, [try it](https://frontandrew.github.io/todo-react/).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- User can make to-do list
+- User can add/remove list items
 
-### `npm test`
+### Use technology:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ECMAScript 2019;
+- React;
+- CSS3;
+- HTML5;
+- WebPack4;
+- BEM methodology;
+- NPM paсkages;
+- GIT technology.
 
-### `npm run build`
+### Fast start:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+0. First you must install [Node.js](https://nodejs.org/en/) and comandline tool, for example [git bash](https://git-scm.com/downloads)
+1. Download repo and unpack on your local
+2. To install environment `npm install`. This download necessary npm packages
+3. To build project local run `npm run build`. This build project from source in dist directory
+4. To develop/debug project local run `npm run start`. This run webpack dev server on your local on 3000 port.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Whats new:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+    <summary>v0.0.1</summary>
+    <li>Develop start version</li>
+</details>
 
-### `npm run eject`
+### Issues:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- not found
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### This project was made possible by:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React](https://reactjs.org);
+* [WebPack](https://webpack.js.org);
+* [Babel](https://babeljs.io);
+* [PostCSS](https://vk.com/postcss);
+* [GitHub](http://github.com);
+* [Juriy Bura](https://github.com/Juriy);
+* And many others.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> Feel free to ask your questions in [telegram](https://t.me/frontandrew)
