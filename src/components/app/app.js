@@ -10,19 +10,19 @@ import './app.css';
 const App = () => {
 
   const todoData = [
-    { id: 1, label: 'Drink Coffee', important: false },
-    { id: 2, label: 'Learn React', important: true },
-    { id: 3, label: 'Build App', important: false },
+    { id: 1, label: 'Drink Coffee' },
+    { id: 2, label: 'Learn React' },
+    { id: 3, label: 'Build App' },
   ];
 
   return (
     <div className="todo-app">
-      <AppHeader toDo={1} done={3}/>
+      <AppHeader toDo={1} done={3} />
       <div className="top-panel d-flex">
         <SearchPanel />
         <ItemStatusFilter />
       </div>
-      <TodoList todos={todoData}/>
+      <TodoList todos={todoData} />
     </div>
   );
 }
