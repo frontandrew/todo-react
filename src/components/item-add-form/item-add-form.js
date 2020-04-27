@@ -12,7 +12,7 @@ export default class ItemAddForm extends React.Component {
       <div className="item-add-form">
         <button
           className="btn btn-outline-secondary"
-          onClick={onAddItem}>
+          onClick={() => onAddItem('Hello World!')}>
           New Item
         </button>
       </div>

@@ -15,10 +15,19 @@ export default class App extends React.Component {
 
   state = {
     todoData: [
-      { id: 1, important: false, done: false, label: 'Drink Coffee' },
-      { id: 2, important: false, done: false, label: 'Learn React' },
-      { id: 3, important: false, done: false, label: 'Build App' },
+      this.createTodoItem('Drink Coffee'),
+      this.createTodoItem('Learn React'),
+      this.createTodoItem('Build App'),
     ]
+  }
+
+  createTodoItem(label) {
+    return {
+      label: label,
+      important: false,
+      done: false,
+      id: this.nextId++,
+    }
   }
 
   deleteItem = (id) => {
@@ -31,10 +40,10 @@ export default class App extends React.Component {
     });
   }
 
-  addItem = () => {
+  addItem = (text) => {
     this.setState(({ todoData }) => {
-
-      const newTodoData = [...todoData, { id: this.nextId++, important: false, done: false, label: `Task ${this.nextId}` },]
+      const newItem = this.createTodoItem(text);
+      const newTodoData = [...todoData, newItem]
 
       return {
         todoData: newTodoData
@@ -50,7 +59,7 @@ export default class App extends React.Component {
         }
         return item;
       });
-      
+
       console.log(`Toggled important: Item${id}`);
       return {
         todoData: newTodoData
@@ -66,7 +75,7 @@ export default class App extends React.Component {
         }
         return item;
       });
-      
+
       console.log(`Toggled done: Item${id}`);
       return {
         todoData: newTodoData
