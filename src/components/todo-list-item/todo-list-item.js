@@ -4,8 +4,6 @@ import './todo-list-item.css';
 
 const TodoListItem = ({ label, important, done, onDeleted, onToggleImportant, onToggleDone }) => {
 
-    //const { label, important, done, onDeleted, onToggleImportant, onToggleDone } = this.props;
-
     const classNames = `todo-list-item ${done ? 'done' : ''} ${important ? 'important' : ''}`;
 
     return (

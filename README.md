@@ -1,5 +1,5 @@
 # TODO (react)
-## v0.1.0
+## v0.1.1
 ---
   
 ### About:
@@ -37,12 +37,22 @@ Hi! And wellcome.
 ### Whats new:
 
 <details>
+    <summary>v0.1.1</summary>
+    <li>User now can add new list items with custom label</li>
+    <li>User now can delet any list item</li>
+    <li>User now can mark/unmark any list item like done</li>
+    <li>User now can mark/unmark any list item like important</li>
+    <li>Now header counters work</li>
+    <li>Updeted README.md</li>
+</details>
+
+<details>
     <summary>v0.1.0</summary>
     <li>Added base layouts</li>
     <li>Now App work with 'Bootstrap' and 'Font Awesome'</li>
     <li>Added modules structure</li>
     <li>Added deployment scripts to gh-pages</li>
-    <li>Updete README.md</li>
+    <li>Updeted README.md</li>
 </details>
 
 <details>

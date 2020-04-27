@@ -51,48 +51,48 @@ export default class App extends React.Component {
     });
   }
 
+  toggleProp(arr, id, propName) {
+    const newArr = arr.map(item => {
+      if (item.id === id) {
+        item[propName] = !item[propName]
+      }
+      return item;
+    });
+    return newArr;
+  }
+
   onToggleImportant = (id) => {
     this.setState(({ todoData }) => {
-      const newTodoData = todoData.map(item => {
-        if (item.id === id) {
-          item.important = !item.important
-        }
-        return item;
-      });
-
-      console.log(`Toggled important: Item${id}`);
       return {
-        todoData: newTodoData
+        todoData: this.toggleProp(todoData, id, 'important')
       }
     });
   }
 
   onToggleDone = (id) => {
     this.setState(({ todoData }) => {
-      const newTodoData = todoData.map(item => {
-        if (item.id === id) {
-          item.done = !item.done
-        }
-        return item;
-      });
-
-      console.log(`Toggled done: Item${id}`);
       return {
-        todoData: newTodoData
+        todoData: this.toggleProp(todoData, id, 'done')
       }
     });
   }
 
   render() {
+
+    const { todoData } = this.state;
+
+    const doneCount = todoData.filter(item => item.done).length;
+    const todoCount = todoData.length - doneCount;
+
     return (
       <div className="todo-app">
-        <AppHeader toDo={1} done={3} />
+        <AppHeader toDo={todoCount} done={doneCount} />
         <div className="top-panel d-flex">
           <SearchPanel />
           <ItemStatusFilter />
         </div>
         <TodoList
-          todos={this.state.todoData}
+          todos={todoData}
           onDeleted={this.deleteItem}
           onToggleImportant={this.onToggleImportant}
           onToggleDone={this.onToggleDone} />
