@@ -18,7 +18,16 @@ export default class App extends React.Component {
       this.createTodoItem('Drink Coffee'),
       this.createTodoItem('Learn React'),
       this.createTodoItem('Build App'),
-    ]
+      this.createTodoItem('Fix Bugs'),
+    ],
+
+    //user input from search-panel component
+    // default: emty string
+    searchInput: '',
+
+    // filter status from item-status-filter component
+    // default: string 'all'
+    activeFilter: 'all',
   }
 
   createTodoItem(label) {
@@ -77,9 +86,25 @@ export default class App extends React.Component {
     });
   }
 
+  onSearchInput = (searchInput) => {
+    this.setState({ searchInput });
+  }
+
+  searchItems(array, string) {
+    if (!string) {
+      return array
+    }
+
+    return array.filter(item => {
+      return item.label.search(new RegExp(string, 'im')) > -1;
+    });
+  }
+
   render() {
 
-    const { todoData } = this.state;
+    const { todoData, searchInput } = this.state;
+
+    const visibleItems = this.searchItems(todoData, searchInput);
 
     const doneCount = todoData.filter(item => item.done).length;
     const todoCount = todoData.length - doneCount;
@@ -88,11 +113,12 @@ export default class App extends React.Component {
       <div className="todo-app">
         <AppHeader toDo={todoCount} done={doneCount} />
         <div className="top-panel d-flex">
-          <SearchPanel />
+          <SearchPanel
+            onSearchInput={this.onSearchInput} />
           <ItemStatusFilter />
         </div>
         <TodoList
-          todos={todoData}
+          todos={visibleItems}
           onDeleted={this.deleteItem}
           onToggleImportant={this.onToggleImportant}
           onToggleDone={this.onToggleDone} />
