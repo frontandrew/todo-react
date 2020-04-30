@@ -14,6 +14,11 @@ Hi! And wellcome.
 
 - User can make to-do list
 - User can add/remove list items
+- User can mark items 'done'
+- User can mark items 'important'
+- User can search items from list by key words
+- User can filter item by three way: all, active and done
+- In app header user see how many items mark as 'done' and how many as 'to do'
 
 ### Use technology:
 
