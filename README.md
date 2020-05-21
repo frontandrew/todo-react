@@ -9,7 +9,7 @@ Hi! And wellcome.
 <div align="center">
 
 [![todo-react screenshot](https://avatars.mds.yandex.net/get-pdb/2828228/f97c29d1-5ac0-48d0-bea7-b1fd0881861a/s1200 "github.io/todo-react")](https://frontandrew.github.io/todo-react/)
-
+  
 </div>
 
 'TODO' is a _study React project_. Its web application to make to-do list. Please, [try it](https://frontandrew.github.io/todo-react/).
