@@ -30,13 +30,13 @@ export default class ItemAddForm extends React.Component {
         onSubmit={this.onSubmit}>
         <input
           type="text"
-          placeholder="What needs to be done"
+          placeholder={this.props.lang.textAddItemInput}
           className="form-control"
           value={this.state.label}
           onChange={this.onLabelChahge} />
         <button
           className="btn btn-outline-secondary">
-          New&nbsp;Item
+          {this.props.lang.textNewItem}
         </button>
       </form>
     )

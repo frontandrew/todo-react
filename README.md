@@ -1,5 +1,5 @@
 # TODO (react)
-## v0.1.2
+## v0.1.3
 ---
   
 ### About:
@@ -23,6 +23,7 @@ Hi! And wellcome.
 - User can search items from list by key words
 - User can filter item by three way: all, active and done
 - In app header user see how many items mark as 'done' and how many as 'to do'
+- In app avalible Russian and English UI language
 
 ### Use technology:
 
@@ -44,6 +45,14 @@ Hi! And wellcome.
 4. To develop/debug project local run `npm run start`. This run webpack dev server on your local on 3000 port.
 
 ### Whats new:
+
+<details>
+    <summary>v0.1.3 Languages</summary>
+    <li>Added Russian language</li>
+    <li>Added lang switcher to header</li>
+    <li>Added some adaptivity improve</li>
+    <li>Updeted README.md</li>
+</details>
 
 <details>
     <summary>v0.1.2 Filters and Search</summary>

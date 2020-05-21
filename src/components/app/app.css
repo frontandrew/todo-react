@@ -1,8 +1,17 @@
 .todo-app {
-  margin: 2rem auto 0 auto;
-  max-width: 400px;
+  width: 100%;
+  max-width: 720px;
+  min-width: 320px;
+  white-space: nowrap;
 }
 
 .top-panel {
   margin: 1rem 0;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem .5rem 0 .5rem;
 }

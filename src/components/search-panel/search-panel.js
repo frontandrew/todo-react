@@ -2,10 +2,10 @@ import React from 'react';
 
 import './search-panel.css';
 
-const SearchPanel = ({ onSearchInput }) => {
+const SearchPanel = ({ onSearchInput, lang }) => {
   return (
     <input type="text"
-      placeholder="type to search"
+      placeholder={lang.textTypeToSearch}
       className="form-control search-input"      
       onInput={event => onSearchInput(event.target.value)}
     />
