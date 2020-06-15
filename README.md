@@ -38,11 +38,11 @@ Hi! And wellcome.
 
 ### Fast start:
 
-0. First you must install [Node.js](https://nodejs.org/en/) and comandline tool, for example [git bash](https://git-scm.com/downloads)
-1. Clone or download repo and unpack on your local
-2. To install environment `npm install`. This download necessary npm packages
-3. To build project local run `npm run build`. This build project from source in dist directory
-4. To develop/debug project local run `npm run start`. This run webpack dev server on your local on 3000 port.
+0. For start please install [Node.js](https://nodejs.org/en/) and comandline tool, for example [git bash](https://git-scm.com/downloads)
+1. Then clone or download repo and unpack on your local
+2. Run `npm install` to install the environment for downloading necessary npm packages
+3. Run `npm run build` to build project local. It will build project from source in dist directory
+4. Run `npm run start` to develop/debug project local. It will start webpack-dev-server on your local, port 3000.
 
 ### Whats new:
 
