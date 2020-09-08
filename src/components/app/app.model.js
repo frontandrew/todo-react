@@ -29,7 +29,7 @@ const initData = [
   },
 ];
 
-const getNextId = () => (Math.floor(Math.random() * 100000));
+const getNextId = () => (Math.floor(Math.random() * 1000000));
 
 export const appMounted = createEvent();
 export const onAddItem = createEvent();
@@ -46,7 +46,7 @@ export const $toDo = createStore(0);
 export const $done = createStore(0);
 export const $search = restore(onSearchInput, '');
 export const $filter = restore(onFilterChange, 'all');
-export const $nextId = createStore(0);
+export const $newId = createStore(0);
 export const $lang = createStore(Langs['en'])
 export const $addInput = restore(onLabelChanged, '')
 
@@ -54,10 +54,10 @@ $todoData
   .on(appMounted, () => initData)
   .on(
     sample({
-      source: { $nextId, $addInput },
+      source: { $newId, $addInput },
       clock: onAddItem,
-      fn: ({ $nextId, $addInput }, _) => ({
-        id: $nextId,
+      fn: ({ $newId, $addInput }, _) => ({
+        id: $newId,
         label: $addInput,
         important: false,
         done: false,
@@ -67,13 +67,13 @@ $todoData
   )
   .watch(x => console.log(x, '$todoData'));
 
-$nextId
-  .on(onAddItem, () => getNextId)
+$newId
+  .on(onAddItem, () => getNextId())
   .watch(x => console.log(x, 'nextId'));
 
 $addInput
   .on(onLabelChanged, (state, text) => text)
-  .reset(onAddItem)
+  .reset($todoData.updates)
   .watch(x => console.log(x, '$addInput'));
 
 $toDo
