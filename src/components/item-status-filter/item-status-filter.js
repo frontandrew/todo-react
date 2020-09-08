@@ -1,11 +1,17 @@
 import React from 'react';
+import { useStore } from 'effector-react';
+
+import {
+  $filter,
+  $lang,
+  onFilterChange,
+} from '../app/app.model';
 
 import './item-status-filter.css';
 
-export default class ItemStatusFilter extends React.Component {  
-  
-  render() {
-    const { textFilterAll, textFilterActive, textFilterDone } = this.props.lang;
+export const ItemStatusFilter = () => {  
+    const { textFilterAll, textFilterActive, textFilterDone } = useStore($lang);
+    const filter = useStore($filter);
 
     const btns = [
       { name: 'all', label: textFilterAll },
@@ -13,7 +19,6 @@ export default class ItemStatusFilter extends React.Component {
       { name: 'done', label: textFilterDone },
     ];
 
-    const { filter, onFilterChange } = this.props;
     const buttons = btns.map(({ name, label }) => {
       
       const classNames = (filter === name) ? 'btn btn-info' : 'btn btn-outline-secondary';
@@ -33,5 +38,4 @@ export default class ItemStatusFilter extends React.Component {
         {buttons}
       </div>
     );
-  }
 }

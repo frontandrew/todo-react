@@ -1,15 +1,21 @@
 import React from 'react';
+import { useStore } from 'effector-react';
+
+import {
+  $lang,
+  onSearchInput,
+} from '../app/app.model';
 
 import './search-panel.css';
 
-const SearchPanel = ({ onSearchInput, lang }) => {
+export const SearchPanel = () => {
+  const { textTypeToSearch } = useStore($lang);
+
   return (
     <input type="text"
-      placeholder={lang.textTypeToSearch}
-      className="form-control search-input"      
+      placeholder={textTypeToSearch}
+      className="form-control search-input"
       onInput={event => onSearchInput(event.target.value)}
     />
   );
 }
-
-export default SearchPanel;

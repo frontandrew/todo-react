@@ -1,27 +1,12 @@
-/**LANG FILE
- * 
- * 
- * 
- * 
- */
-
-export const Langs = [
-  {
+export const Langs = {
+  ru: {
     indicator: 'ru',
     label: 'RU',
-    // app.js
-
-    // app-header.js
     textToDoList: 'Список Дел',
     textMoreToDo: ` осталось, `,
     textDone: ' готово',
-
-    // search-panel.js
     typeToSearch: 'поиск дел',
-
-    // item-add-form.js
     textNewItem: 'Добавить',
-
     textTypeToSearch: 'начните вводить',
     textFilterAll: 'Все',
     textFilterActive: 'Активно',
@@ -29,7 +14,7 @@ export const Langs = [
     textAddItemInput: 'что нужно сделать',
   },
 
-  {
+  en: {
     indicator: 'en',
     label: 'EN',
     textToDoList: 'ToDo List',
@@ -43,4 +28,4 @@ export const Langs = [
     textFilterDone: 'Done',
     textAddItemInput: 'what needs to be done',
   },
-]
+}
