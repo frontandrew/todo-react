@@ -1,4 +1,4 @@
-import { createEvent, createStore, sample, restore, } from 'effector';
+import { createEvent, createStore, sample, restore } from 'effector';
 
 import { Langs } from '../lang/lang';
 
@@ -29,7 +29,7 @@ const initData = [
   },
 ];
 
-// const getNextId = () => (Math.floor(Math.random() * 100000));
+const getNextId = () => (Math.floor(Math.random() * 100000));
 
 export const appMounted = createEvent();
 export const onAddItem = createEvent();
@@ -50,8 +50,6 @@ export const $nextId = createStore(0);
 export const $lang = createStore(Langs['en'])
 export const $addInput = restore(onLabelChanged, '')
 
-// export const fxGetNextId = createEffect().use(getNextId)
-
 $todoData
   .on(appMounted, () => initData)
   .on(
@@ -66,14 +64,24 @@ $todoData
       })
     }),
     (state, todo) => ([...state, todo])
-  );
+  )
+  .watch(x => console.log(x, '$todoData'));
 
-// $nextId.on(onAddItem, () => getNextId);
+$nextId
+  .on(onAddItem, () => getNextId)
+  .watch(x => console.log(x, 'nextId'));
 
-$addInput.reset(onAddItem);
+$addInput
+  .on(onLabelChanged, (state, text) => text)
+  .reset(onAddItem)
+  .watch(x => console.log(x, '$addInput'));
 
-$toDo.on($todoData.updates, (state, todos) => todos.length);
+$toDo
+.on($todoData.updates, (state, todos) => todos.length)
+.watch(x => console.log(x, '$toDo'));
 
-$done.on($todoData.updates, (state, todos) =>
-  todos.filter(item => item.done).length
-)
+$done
+  .on($todoData.updates, (state, todos) =>
+    todos.filter(item => item.done).length
+  )
+  .watch(x => console.log(x, '$done'));
