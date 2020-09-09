@@ -1,5 +1,5 @@
-# TODO (react)
-## v0.1.3
+# TODO
+## v0.2.0
 ---
   
 ### About:
@@ -12,7 +12,7 @@ Hi! And wellcome.
   
 </div>
 
-'TODO' is a _study React project_. Its web application to make to-do list. Please, [try it](https://frontandrew.github.io/todo-react/).
+'TODO' is a small pet-project. Its web application to make to-do list. Please, [try it](https://frontandrew.github.io/todo-react/).
 
 ### Features:
 
@@ -25,8 +25,12 @@ Hi! And wellcome.
 - In app header user see how many items mark as 'done' and how many as 'to do'
 - In app avalible Russian and English UI language
 
+### Roadmap:
+- 0.3 - Material UI migration.
+
 ### Use technology:
 
+- Effector;
 - React;
 - ES 2019;
 - HTML5;
@@ -45,6 +49,11 @@ Hi! And wellcome.
 4. Run `npm run start` to develop/debug project local. It will start webpack-dev-server on your local, port 3000.
 
 ### Whats new:
+
+<details>
+    <summary>v0.2.0 Effector</summary>
+    <li>Effector - new state manager</li>
+</details>
 
 <details>
     <summary>v0.1.3 Languages</summary>
@@ -87,10 +96,14 @@ Hi! And wellcome.
 
 ### Issues:
 
-- not found
+<details>
+    <summary>0.2.0</summary>
+    <li>Filters not work</li>
+</details>
 
 ### This project was made possible by:
 
+* [Effector](https://effector.now.sh/);
 * [React](https://reactjs.org);
 * [WebPack](https://webpack.js.org);
 * [Babel](https://babeljs.io);
