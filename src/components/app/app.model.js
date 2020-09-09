@@ -59,6 +59,12 @@ $toDos
     }),
     (state, todo) => ([...state, todo])
   )
+  .on(
+    onToggleDone,
+    (state, id) => state.map(todo =>
+      todo.id === id ? { ...todo, done: !todo.done } : todo
+    )
+  )
   .watch(x => console.log(x, '$toDos'))
 
 $newId
@@ -79,3 +85,4 @@ $haveDone
     todos.filter(({ done }) => done).length
   )
   .watch(x => console.log(x, '$haveDone'))
+
