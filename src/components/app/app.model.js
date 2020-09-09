@@ -1,5 +1,5 @@
 import { createEvent, createStore, sample, restore } from 'effector'
-import { Langs } from '../lang/lang'
+import { LANGS as langs } from '../lang'
 
 const initData = [
   {
@@ -45,7 +45,7 @@ export const $haveDone = createStore(0)
 export const $search = restore(onSearchInput, '')
 export const $filter = restore(onFilterChange, 'all')
 export const $newId = createStore(0)
-export const $lang = createStore(Langs['en'])
+export const $lang = createStore(langs[0])
 export const $addInput = restore(onLabelChanged, '')
 export const $toDos = restore(appMounted, initData)
 
@@ -71,6 +71,7 @@ $toDos
       todo.id === id ? { ...todo, important: !todo.important } : todo
     )
   )
+  .on(onDeleteItem, (state, id) => state.filter(todo => todo.id !== id))
   .watch(x => console.log(x, '$toDos'))
 
 $newId
@@ -92,3 +93,6 @@ $haveDone
   )
   .watch(x => console.log(x, '$haveDone'))
 
+$lang
+  .on(onToggleLang, (state, id) => langs[Number(id) ? 0 : 1])
+  .watch(langs => console.log(langs.label, '$lang'))

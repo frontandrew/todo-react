@@ -1,6 +1,6 @@
-export const Langs = {
-  ru: {
-    indicator: 'ru',
+export const LANGS = [
+  {
+    id: '0',
     label: 'RU',
     textToDoList: 'Список Дел',
     textMoreToDo: ` осталось, `,
@@ -14,8 +14,8 @@ export const Langs = {
     textAddItemInput: 'что нужно сделать',
   },
 
-  en: {
-    indicator: 'en',
+  {
+    id: '1',
     label: 'EN',
     textToDoList: 'ToDo List',
     textMoreToDo: ' more to do, ',
@@ -28,4 +28,4 @@ export const Langs = {
     textFilterDone: 'Done',
     textAddItemInput: 'what needs to be done',
   },
-}
+]

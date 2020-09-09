@@ -10,7 +10,7 @@ export const AppHeader = () => {
     textDone,
     textToDoList,
     label,
-    indicator
+    id,
   } = useStore($lang)
   const toDo = useStore($haveToDos)
   const done = useStore($haveDone)
@@ -20,7 +20,7 @@ export const AppHeader = () => {
       <h1>{textToDoList}</h1>
       <button
         className="btn btn-outline-secondary btn-sm app-header__lang"
-        onClick={() => onToggleLang(indicator)}>
+        onClick={() => onToggleLang(id)}>
         {label}
       </button>
       <h2>{toDo}{textMoreToDo}{done}{textDone}</h2>
