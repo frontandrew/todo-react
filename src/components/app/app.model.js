@@ -47,9 +47,13 @@ export const $filter = restore(onFilterChange, 'all')
 export const $newId = createStore(0)
 export const $lang = createStore(langs[0])
 export const $addInput = restore(onLabelChanged, '')
-export const $toDos = restore(appMounted, initData)
+export const $toDos = createStore(null)
 
 $toDos
+  .on(appMounted, () => {
+    console.log('Yo! App was mounter! ENJOY!')
+    return initData
+  })
   .on(
     sample({
       source: { $newId, $addInput },
