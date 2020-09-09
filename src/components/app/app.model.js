@@ -49,8 +49,6 @@ export const $lang = createStore(Langs['en'])
 export const $addInput = restore(onLabelChanged, '')
 export const $toDos = restore(appMounted, initData)
 
-
-
 $toDos
   .on(
     sample({
@@ -59,11 +57,9 @@ $toDos
       fn: ({ $newId: id, $addInput: label }, _) =>
         ({ id, label, important: false, done: false })
     }),
-    (state, todo) => ({ ...state, [todo.id]: todo })
+    (state, todo) => ([...state, todo])
   )
   .watch(x => console.log(x, '$toDos'))
-
-
 
 $newId
   .on(onAddItem, () => getNextId())
@@ -80,6 +76,6 @@ $haveToDos
 
 $haveDone
   .on($toDos.updates, (state, todos) =>
-    todos.filter(({ done }) => done)
+    todos.filter(({ done }) => done).length
   )
   .watch(x => console.log(x, '$haveDone'))
