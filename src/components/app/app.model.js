@@ -65,6 +65,12 @@ $toDos
       todo.id === id ? { ...todo, done: !todo.done } : todo
     )
   )
+  .on(
+    onToggleImportant,
+    (state, id) => state.map(todo =>
+      todo.id === id ? { ...todo, important: !todo.important } : todo
+    )
+  )
   .watch(x => console.log(x, '$toDos'))
 
 $newId
