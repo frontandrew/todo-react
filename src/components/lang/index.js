@@ -1,27 +1,12 @@
-/**LANG FILE
- * 
- * 
- * 
- * 
- */
-
-export const Langs = [
+export const LANGS = [
   {
-    indicator: 'ru',
+    id: '0',
     label: 'RU',
-    // app.js
-
-    // app-header.js
     textToDoList: 'Список Дел',
     textMoreToDo: ` осталось, `,
     textDone: ' готово',
-
-    // search-panel.js
     typeToSearch: 'поиск дел',
-
-    // item-add-form.js
     textNewItem: 'Добавить',
-
     textTypeToSearch: 'начните вводить',
     textFilterAll: 'Все',
     textFilterActive: 'Активно',
@@ -30,7 +15,7 @@ export const Langs = [
   },
 
   {
-    indicator: 'en',
+    id: '1',
     label: 'EN',
     textToDoList: 'ToDo List',
     textMoreToDo: ' more to do, ',

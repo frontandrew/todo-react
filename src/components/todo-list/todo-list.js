@@ -1,31 +1,35 @@
-import React from 'react';
+import React from 'react'
+import { useStore } from 'effector-react'
+import { TodoListItem } from '../todo-list-item/todo-list-item'
+import {
+  $toDos,
+  onDeleteItem,
+  onToggleImportant,
+  onToggleDone,
+} from '../app/app.model'
 
-import TodoListItem from '../todo-list-item/todo-list-item';
+import './todo-list.css'
 
-import './todo-list.css';
+export const TodoList = () => {
+  const todos = useStore($toDos)
 
-const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
-
-  const elements = todos.map((item) => {
-
-    const { id, ...itemProps } = item;
+  const elements = todos ? todos.map((item) => {
+    const { id, ...itemProps } = item
 
     return (
       <li key={id} className="list-group-item">
         <TodoListItem
           {...itemProps}
-          onDeleted={() => onDeleted(id)}
+          onDeleted={() => onDeleteItem(id)}
           onToggleImportant={() => onToggleImportant(id)}
           onToggleDone={() => onToggleDone(id)} />
       </li>
-    );
-  });
+    )
+  }) : []
 
   return (
     <ul className="list-group todo-list">
       {elements}
     </ul>
-  );
+  )
 }
-
-export default TodoList;
