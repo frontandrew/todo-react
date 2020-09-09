@@ -1,6 +1,5 @@
-import { createEvent, createStore, sample, restore } from 'effector';
-
-import { Langs } from '../lang/lang';
+import { createEvent, createStore, sample, restore } from 'effector'
+import { Langs } from '../lang/lang'
 
 const initData = [
   {
@@ -27,61 +26,60 @@ const initData = [
     done: true,
     id: 4,
   },
-];
+]
 
-const getNextId = () => (Math.floor(Math.random() * 1000000));
+const getNextId = () => (Math.floor(Math.random() * 1000000))
 
-export const appMounted = createEvent();
-export const onAddItem = createEvent();
-export const onDeleteItem = createEvent();
-export const onToggleImportant = createEvent();
-export const onToggleDone = createEvent();
-export const onToggleLang = createEvent();
-export const onLabelChanged = createEvent();
-export const onFilterChange = createEvent();
-export const onSearchInput = createEvent();
+export const appMounted = createEvent()
+export const onAddItem = createEvent()
+export const onDeleteItem = createEvent()
+export const onToggleImportant = createEvent()
+export const onToggleDone = createEvent()
+export const onToggleLang = createEvent()
+export const onLabelChanged = createEvent()
+export const onFilterChange = createEvent()
+export const onSearchInput = createEvent()
 
-export const $todoData = createStore(null);
-export const $toDo = createStore(0);
-export const $done = createStore(0);
-export const $search = restore(onSearchInput, '');
-export const $filter = restore(onFilterChange, 'all');
-export const $newId = createStore(0);
+export const $haveToDos = createStore(0)
+export const $haveDone = createStore(0)
+export const $search = restore(onSearchInput, '')
+export const $filter = restore(onFilterChange, 'all')
+export const $newId = createStore(0)
 export const $lang = createStore(Langs['en'])
 export const $addInput = restore(onLabelChanged, '')
+export const $toDos = restore(appMounted, initData)
 
-$todoData
-  .on(appMounted, () => initData)
+
+
+$toDos
   .on(
     sample({
       source: { $newId, $addInput },
       clock: onAddItem,
-      fn: ({ $newId, $addInput }, _) => ({
-        id: $newId,
-        label: $addInput,
-        important: false,
-        done: false,
-      })
+      fn: ({ $newId: id, $addInput: label }, _) =>
+        ({ id, label, important: false, done: false })
     }),
-    (state, todo) => ([...state, todo])
+    (state, todo) => ({ ...state, [todo.id]: todo })
   )
-  .watch(x => console.log(x, '$todoData'));
+  .watch(x => console.log(x, '$toDos'))
+
+
 
 $newId
   .on(onAddItem, () => getNextId())
-  .watch(x => console.log(x, 'nextId'));
+  .watch(x => console.log(x, 'nextId'))
 
 $addInput
   .on(onLabelChanged, (state, text) => text)
-  .reset($todoData.updates)
-  .watch(x => console.log(x, '$addInput'));
+  .reset($toDos.updates)
+  .watch(x => console.log(x, '$addInput'))
 
-$toDo
-.on($todoData.updates, (state, todos) => todos.length)
-.watch(x => console.log(x, '$toDo'));
+$haveToDos
+  .on($toDos.updates, (state, todos) => todos.length)
+  .watch(x => console.log(x, '$haveToDos'))
 
-$done
-  .on($todoData.updates, (state, todos) =>
-    todos.filter(item => item.done).length
+$haveDone
+  .on($toDos.updates, (state, todos) =>
+    todos.filter(({ done }) => done)
   )
-  .watch(x => console.log(x, '$done'));
+  .watch(x => console.log(x, '$haveDone'))
