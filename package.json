@@ -5,6 +5,10 @@
   "author": "@frontandrew",
   "license": "MIT",
   "homepage": "https://frontandrew.github.io/todo-react",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontandrew/todo-react.git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",
