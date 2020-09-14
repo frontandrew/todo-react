@@ -2,7 +2,7 @@ import React from 'react'
 import { useStore } from 'effector-react'
 import { TodoListItem } from '../todo-list-item/todo-list-item'
 import {
-  $toDos,
+  $render,
   onDeleteItem,
   onToggleImportant,
   onToggleDone,
@@ -11,7 +11,7 @@ import {
 import './todo-list.css'
 
 export const TodoList = () => {
-  const todos = useStore($toDos)
+  const todos = useStore($render)
 
   const elements = todos ? todos.map((item) => {
     const { id, ...itemProps } = item

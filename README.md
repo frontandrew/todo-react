@@ -1,5 +1,5 @@
 # TODO
-## v0.2.0
+## v0.2.1
 ---
   
 ### About:
@@ -26,19 +26,20 @@ Hi! And wellcome.
 - In app avalible Russian and English UI language
 
 ### Roadmap:
-- 0.3 - Material UI migration.
+- 0.3 - Material UI migration
+- 0.3.x - Dark theme
 
 ### Use technology:
 
-- Effector;
-- React;
-- ES 2019;
-- HTML5;
-- CSS3;
-- Bootstrap;
-- WebPack4;
-- NPM paсkages;
-- GIT technology.
+- Effector
+- React
+- ES 2019
+- HTML5
+- CSS3
+- Bootstrap
+- WebPack4
+- NPM paсkages
+- GIT technology
 
 ### Fast start:
 
@@ -49,6 +50,12 @@ Hi! And wellcome.
 4. Run `npm run start` to develop/debug project local. It will start webpack-dev-server on your local, port 3000.
 
 ### Whats new:
+
+<details>
+    <summary>v0.2.1 Effector model</summary>
+    <li>App has been received model layer on effector</li>
+    <li>Roadmap section has been updated</li>
+</details>
 
 <details>
     <summary>v0.2.0 Effector</summary>
@@ -103,15 +110,15 @@ Hi! And wellcome.
 
 ### This project was made possible by:
 
-* [Effector](https://effector.now.sh/);
-* [React](https://reactjs.org);
-* [WebPack](https://webpack.js.org);
-* [Babel](https://babeljs.io);
-* [PostCSS](https://vk.com/postcss);
-* [GitHub](http://github.com);
-* [Bootstrap](https://getbootstrap.com/);
-* [Font Awesome](https://fontawesome.com/);
-* [Juriy Bura](https://github.com/Juriy);
+* [Effector](https://effector.now.sh/)
+* [React](https://reactjs.org)
+* [WebPack](https://webpack.js.org)
+* [Babel](https://babeljs.io)
+* [PostCSS](https://vk.com/postcss)
+* [GitHub](http://github.com)
+* [Bootstrap](https://getbootstrap.com/)
+* [Font Awesome](https://fontawesome.com/)
+* [Juriy Bura](https://github.com/Juriy)
 * And many others.
 
 > Feel free to ask your questions in [telegram](https://t.me/frontandrew)
