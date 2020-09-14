@@ -1,4 +1,12 @@
-import { createEvent, createStore, sample, restore } from 'effector'
+import {
+  createEvent,
+  createStore,
+  sample,
+  restore,
+  guard,
+  combine,
+} from 'effector'
+
 import { LANGS as langs } from '../lang'
 
 const initData = [
@@ -28,7 +36,23 @@ const initData = [
   },
 ]
 
-const getNextId = () => (Math.floor(Math.random() * 1000000))
+const prepareToDos = ({ todos, filter, search }) => {
+
+  const filteredToDos = (todos, filter) => {
+    switch (filter) {
+      case 'all': return todos
+      case 'active': return todos.filter(({ done }) => !done)
+      case 'done': return todos.filter(({ done }) => done)
+      default: return todos
+    }
+  }
+
+  const searchedToDos = (search, todos) => !!search
+    ? todos.filter(({ label }) => label.search(new RegExp(search, 'gim')) > -1)
+    : todos
+
+  return searchedToDos(search, filteredToDos(todos, filter))
+}
 
 export const appMounted = createEvent()
 export const onAddItem = createEvent()
@@ -44,20 +68,25 @@ export const $haveToDos = createStore(0)
 export const $haveDone = createStore(0)
 export const $search = restore(onSearchInput, '')
 export const $filter = restore(onFilterChange, 'all')
-export const $newId = createStore(0)
+export const $newId = createStore(10)
 export const $lang = createStore(langs[0])
 export const $addInput = restore(onLabelChanged, '')
 export const $toDos = createStore(null)
+export const $render = combine(
+  { $toDos, $filter, $search },
+  ({ $toDos: todos, $filter: filter, $search: search }) =>
+    prepareToDos({ todos, filter, search })
+)
 
 $toDos
   .on(appMounted, () => {
-    console.log('Yo! App was mounter! ENJOY!')
+    console.log('Yo! App was mounted! ENJOY!')
     return initData
   })
   .on(
     sample({
-      source: { $newId, $addInput },
-      clock: onAddItem,
+      source: combine({ $newId, $addInput }),
+      clock: guard(onAddItem, { filter: $addInput }),
       fn: ({ $newId: id, $addInput: label }, _) =>
         ({ id, label, important: false, done: false })
     }),
@@ -76,27 +105,21 @@ $toDos
     )
   )
   .on(onDeleteItem, (state, id) => state.filter(todo => todo.id !== id))
-  .watch(x => console.log(x, '$toDos'))
 
 $newId
-  .on(onAddItem, () => getNextId())
-  .watch(x => console.log(x, 'nextId'))
+  .on(onAddItem, (state, _) => state + 1)
 
 $addInput
   .on(onLabelChanged, (state, text) => text)
   .reset($toDos.updates)
-  .watch(x => console.log(x, '$addInput'))
 
 $haveToDos
   .on($toDos.updates, (state, todos) => todos.length)
-  .watch(x => console.log(x, '$haveToDos'))
 
 $haveDone
   .on($toDos.updates, (state, todos) =>
     todos.filter(({ done }) => done).length
   )
-  .watch(x => console.log(x, '$haveDone'))
 
 $lang
   .on(onToggleLang, (state, id) => langs[Number(id) ? 0 : 1])
-  .watch(langs => console.log(langs.label, '$lang'))
