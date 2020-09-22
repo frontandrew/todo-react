@@ -1,21 +1,32 @@
-import React from 'react';
-import { useStore } from 'effector-react';
+import React from 'react'
+import { useStore } from 'effector-react'
+import { TextField, makeStyles } from '@material-ui/core'
 
 import {
   $lang,
   onSearchInput,
-} from '../app/app.model';
+} from '../app/app.model'
 
-import './search-panel.css';
+const useStyles = makeStyles({
+  input: {
+    width: '100%',
+    minWidth: '220px',
+
+  }
+})
 
 export const SearchPanel = () => {
-  const { textTypeToSearch } = useStore($lang);
+  const { searchLabel, searchPlaceholder } = useStore($lang)
+  const { input } = useStyles()
 
   return (
-    <input type="text"
-      placeholder={textTypeToSearch}
-      className="form-control search-input"
+    <TextField
+      classes={{ root: input }}
+      label={searchLabel}
+      variant="outlined"
+      type="text"
+      placeholder={searchPlaceholder}
       onInput={event => onSearchInput(event.target.value)}
     />
-  );
+  )
 }
